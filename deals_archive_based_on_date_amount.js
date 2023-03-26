@@ -58,7 +58,8 @@ exports.main = (event) => {
                     for (let inL = 0; inL < idsToMergeAll.length; inL++) { 
                       let async_fun = async function() {
                         try {
-                          const resWew = await                                               hubspotClient.crm.deals.basicApi.getById(idsToMergeAll[inL], ACTIVITY_PROPERTY, undefined, undefined, false);
+                          const resWew = await                                   
+                          hubspotClient.crm.deals.basicApi.getById(idsToMergeAll[inL], ACTIVITY_PROPERTY, undefined, undefined, false);
                           let lookingForAmount1 = resWew.properties.amount; 
                           if (lookingForAmount1 == amount && inL != i) {
                             if (cdateConversion > cdateMax) {
