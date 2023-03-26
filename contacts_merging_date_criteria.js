@@ -1,7 +1,6 @@
 const hubspot = require('@hubspot/api-client');
 
 const DUPLICAT_PROPERTY = 'lastname';
-//firstname && lastname
 const ACTIVITY_PROPERTY = 'notes_last_updated';
 
 exports.main = (event) => {
@@ -112,8 +111,8 @@ exports.main = (event) => {
                     }
                   }
                  //merging by the dates cryteria only 
-				});
-			});
-        });
-	});
+		});
+   });
+  });
+ });
 };
