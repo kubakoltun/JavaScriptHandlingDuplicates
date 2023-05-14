@@ -5,7 +5,6 @@ const ACTIVITY_PROPERTY = [ "amount" , "createdate" ];
 const ACTIVITY_PROPERTY_DATE = 'createdate';
 
 exports.main = (event) => {
-
   const hubspotClient = new hubspot.Client({ accessToken: process.env.nsc });
   
   hubspotClient.crm.deals.basicApi
@@ -27,7 +26,6 @@ exports.main = (event) => {
           let idsToMerge = searchResults.results
             .map(object => object.id)
             .filter(vid => Number(vid) !== Number(event.object.objectId))
-          
           let idsToMergeAll = searchResults.results
             .map(object => object.id);
 
@@ -68,8 +66,7 @@ exports.main = (event) => {
                             }
                             if (idsToMergeAll[i] == newIdsToMerge[newIdsToMerge.length-1]) {
                               //{}
-                            }
-                            else {
+                            } else {
                               newIdsToMerge.push(idsToMergeAll[i]);
                             }
                           }
@@ -87,8 +84,7 @@ exports.main = (event) => {
               for (let j = 0; j < newIdsToMerge.length; j++) {
                 if (newIdsToMerge[j] === searchForMax) {
                   //{}
-                } 
-                else {
+                } else {
                   dealToParse = `{"id":"${newIdsToMerge[j]}"}`;
                   console.log(`deal to parse and delete: ${dealToParse}`);
                   let objJson = JSON.parse(dealToParse);
@@ -149,13 +145,11 @@ exports.main = (event) => {
                     }
                   });
                   console.log(`Deal archived`);
-                }
-                else {
+                } else {
                   console.log(`Deals have a diffrent amount, not a duplicate`);
                   return;
                 }
-              }
-              else {
+              } else {
                 console.log(`Deals created too far apart, not a duplicate`);
                 return;
               }
