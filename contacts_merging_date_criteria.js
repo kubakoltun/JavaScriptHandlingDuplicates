@@ -4,7 +4,6 @@ const DUPLICAT_PROPERTY = 'lastname';
 const ACTIVITY_PROPERTY = 'notes_last_updated';
 
 exports.main = (event) => {
-
   const hubspotClient = new hubspot.Client({ accessToken: process.env.nsc });
   
   hubspotClient.crm.contacts.basicApi
@@ -75,8 +74,7 @@ exports.main = (event) => {
                         temp = idToMerge;
                         idToMerge = idMergedInto;
                         idMergedInto = temp;
-                   }
-                   else {
+                   } else {
                      let data0 = new Date(lastmodPropVal0);
                      console.log(`data0 ${data0}`);
                      let data1 = new Date(lastmodPropVal1);
@@ -105,8 +103,7 @@ exports.main = (event) => {
                          console.log('Contacts merged!');
                        });
                        //merge
-                    } 
-                    else {
+                    } else {
                     throw new Error("Unable to decide which contact should be superior");
                     }
                   }
