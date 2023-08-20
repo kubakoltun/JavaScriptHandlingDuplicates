@@ -1,5 +1,4 @@
 const hubspot = require('@hubspot/api-client');
-
 const DUPLICAT_PROPERTY = 'lastname';
 const ACTIVITY_PROPERTY = 'notes_last_updated';
 
